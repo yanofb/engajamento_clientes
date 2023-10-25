@@ -1,1 +1,11 @@
-https://github.com/yanofb/engajamento_clientes
+Códigos utilizados:
+
+qtd_dias_para_acesso = DATEDIFF( Acessos[data_convite],  Acessos[data_acesso], day)
+
+agrupamento_dias_convite_acesso = IF(Acessos[qtd_dias_para_acesso] = 0, " Mesmo dia",
+IF(Acessos[qtd_dias_para_acesso] >=1 && Acessos[qtd_dias_para_acesso]  <=5, "  1 a 5 dias",
+IF(Acessos[qtd_dias_para_acesso] >=6 && Acessos[qtd_dias_para_acesso]  <=10, "   6 a 10 dias", "    Mais de 10 dias")))
+
+agrupamento_qntd = IF(Transacoes[qnt_vendas] > 0 && Transacoes[qnt_vendas] <= 5, " Até 5 vendas", 
+IF(Transacoes[qnt_vendas] > 5 && Transacoes[qnt_vendas] <= 15, "  6 a 15 vendas", 
+IF(Transacoes[qnt_vendas] > 15 && Transacoes[qnt_vendas] <= 25, "   16 a 25", "    Mais de 25")))
